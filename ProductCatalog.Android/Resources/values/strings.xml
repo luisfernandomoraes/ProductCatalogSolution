@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProductCatalog.Android</string>
+  <string name="main_activitu_title">Settings</string>
+  <string name="action_settings">Settings</string>
+</resources>
