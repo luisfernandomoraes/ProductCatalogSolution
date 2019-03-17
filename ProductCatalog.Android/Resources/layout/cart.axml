@@ -3,17 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android" 
     android:orientation="vertical" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-    android:background="#eff0f5">
+    android:layout_height="fill_parent">
     <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/lvlProducts"
-        android:layout_above="@+id/viewGroupFooter"
-        android:dividerHeight="5dp"
-        android:divider="@android:color/transparent" />
+        android:id="@+id/lvlCart"
+        android:background="#eff0f5"
+        android:footerDividersEnabled="false" />
     <LinearLayout
         android:id="@+id/viewGroupFooter"
         android:orientation="horizontal"
@@ -26,8 +22,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/btnBuy"
-            android:text="Comprar - R$ 2.938,49"
+            android:id="@+id/btnFinish"
+            android:text="Finalizar a compra"
             android:layout_weight="1"
             android:background="#fffe90"
             android:textColor="#212121"
