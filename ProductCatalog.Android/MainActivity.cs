@@ -16,6 +16,9 @@ using ProductCatalog.Android.Interfaces;
 using ProductCatalog.Android.Enums;
 using System.Linq;
 using System.Globalization;
+using Android.Support.V4.View;
+using Android.Support.V4.Widget;
+using Android.Support.V7.Content.Res;
 
 namespace ProductCatalog.Android
 {
@@ -32,8 +35,10 @@ namespace ProductCatalog.Android
         private LinearLayout _viewGroupFooter;
         private Button _btnBuy;
         private ListView _lvlProducts;
+        private ListView _lvwRightDrawer;
         private IList<Category> _categories;
-
+        private DrawerLayout _drawerLayout;
+        private ArrayAdapter<string> _categoriesAdapter;
 
         public MainActivity()
         {
@@ -56,17 +61,21 @@ namespace ProductCatalog.Android
             _adapter = new ProductAdapter(this);
             _adapter.OnProductQuantityDecrease += ProductQuantityDecrease;
             _adapter.OnProductQuantityIncrease += ProductQuantityIncrease;
-            _adapter.OnToggleFavorite += ToggleFavorite;  
+            _adapter.OnToggleFavorite += ToggleFavorite;
 
             _viewGroupFooter = FindViewById<LinearLayout>(Resource.Id.viewGroupFooter);
             _viewGroupFooter.Visibility = ViewStates.Gone;
             _btnBuy = FindViewById<Button>(Resource.Id.btnBuy);
             _lvlProducts = FindViewById<ListView>(Resource.Id.lvlProducts);
+            _lvwRightDrawer = FindViewById<ListView>(Resource.Id.right_drawer);
+            _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _categories = new List<Category>();
+
+
 
             _btnBuy.Click += BtnBuyClick;
             _lvlProducts.ItemClick += ItemClick;
-
+            _lvwRightDrawer.ItemClick += ItemClickFilter;
             LoadCatalogData();
         }
 
@@ -87,6 +96,18 @@ namespace ProductCatalog.Android
         private void ProductCategoryLoad(IList<Category> categories)
         {
             _categories = categories;
+            List<string> mItems = new List<string>();
+
+
+            mItems.Add("Todas as categorias");
+
+            foreach (var category in _categories)
+            {
+                mItems.Add(category.Name);
+            }
+
+            _categoriesAdapter = new ArrayAdapter<string>(this, global::Android.Resource.Layout.SimpleListItemChecked, mItems);
+            _lvwRightDrawer.Adapter = _categoriesAdapter;
             InvalidateOptionsMenu();
         }
 
@@ -157,6 +178,17 @@ namespace ProductCatalog.Android
             }
         }
 
+        private void ItemClickFilter(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            if (e.Position == 0)
+                GetProductsByCategory(null);
+            else
+            {
+                var category = _categories[e.Position - 1];
+                GetProductsByCategory(category);
+            }
+        }
+
         private bool IsNotListItem(IListViewItem item)
         {
             return !IsListItem(item);
@@ -169,32 +201,24 @@ namespace ProductCatalog.Android
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            if (_categories.Count == 0) return false;
+            MenuInflater.Inflate(Android.Resource.Menu.menu_main, menu);
 
-            menu.Clear();
-            menu.Add("Todas as categorias");
-
-            foreach (var category in _categories)
-            {
-                menu.Add(category.Name);
-            }
-
-            return base.OnCreateOptionsMenu(menu);
+            return true;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            var name = item.ToString();
-            var category = GetCategoryByName(name);
-            GetProductsByCategory(category);
+
+            //var name = item.ToString();
+            //var category = GetCategoryByName(name);
+            //GetProductsByCategory(category);
+
+            if (_drawerLayout.IsDrawerOpen(_lvwRightDrawer))
+                _drawerLayout.CloseDrawer(GravityCompat.End);
+            else
+                _drawerLayout.OpenDrawer(GravityCompat.End);
 
             return base.OnOptionsItemSelected(item);
-        }
-
-        
-        private Category GetCategoryByName(string name)
-        {
-            return _categories.FirstOrDefault(e => e.Name.Equals(name));
         }
 
         private void GetProductsByCategory(Category category)
