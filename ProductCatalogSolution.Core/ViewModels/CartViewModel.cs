@@ -22,9 +22,9 @@ namespace ProductCatalogSolution.Core.ViewModels
         public event TotalOfUnitsLoadDelegate OnTotalOfUnitsLoad;
         public event TotalPriceLoadDelegate OnTotalPriceLoad;
 
-        public ICommand GetProductsCommand { get; private set; }
-        public ICommand GetTotalOfUnitsCommand { get; private set; }
-        public ICommand GetTotalPriceCommand { get; private set; }
+        public ICommand GetProductsCommand { get; }
+        public ICommand GetTotalOfUnitsCommand { get; }
+        public ICommand GetTotalPriceCommand { get; }
 
         public CartViewModel(Cart cart)
         {

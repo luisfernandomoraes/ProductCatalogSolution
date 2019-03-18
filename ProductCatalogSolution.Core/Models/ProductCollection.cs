@@ -7,7 +7,7 @@ namespace ProductCatalogSolution.Core.Models
     //TODO: Refactor msg exception.
     public class ProductCollection : List<Product>
     {
-        public string Name { get; private set; }
+        public string Name { get; }
 
         public ProductCollection(string name, IList<Product> products)
         {

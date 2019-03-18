@@ -5,8 +5,8 @@ namespace ProductCatalogSolution.Core.Models
 {
     public class Category
     {
-        public int Id { get; private set; }
-        public string Name { get; private set; }
+        public int Id { get; }
+        public string Name { get; }
 
         public Category(CategoryDto category)
         {

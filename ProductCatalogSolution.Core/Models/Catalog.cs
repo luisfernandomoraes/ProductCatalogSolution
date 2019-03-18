@@ -18,8 +18,8 @@ namespace ProductCatalogSolution.Core.Models
         private IList<PromotionDto> _apiPromotionsList;
         private IList<CategoryDto> _apiCategoriesList;
 
-        public IList<Category> Categories { get; private set; }
-        public IList<ProductCollection> ProductCollections { get; private set; }
+        public IList<Category> Categories { get; }
+        public IList<ProductCollection> ProductCollections { get; }
 
         public Catalog(ICatalogApi catalogApi)
         {

@@ -4,8 +4,8 @@ namespace ProductCatalogSolution.Core.Models
 {
     public class Policy
     {
-        public int MinimumQuantity { get; private set; }
-        public double Discount { get; private set; }
+        public int MinimumQuantity { get; }
+        public double Discount { get; }
 
         public Policy(PolicyDto policy)
         {

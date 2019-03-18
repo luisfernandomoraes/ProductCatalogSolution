@@ -9,9 +9,9 @@ namespace ProductCatalogSolution.Core.Models
 {
     public class Promotion
     {
-        public string Name { get; private set; }
-        public int CategoryId { get; private set; }
-        public IList<Policy> Policies { get; private set; }
+        public string Name { get; }
+        public int CategoryId { get; }
+        public IList<Policy> Policies { get; }
 
         public Promotion(PromotionDto promotion)
         {

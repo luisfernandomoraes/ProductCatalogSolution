@@ -33,15 +33,15 @@ namespace ProductCatalogSolution.Core.ViewModels
         public event ProductsCartUpdateDelegate OnProductsCartUpdate;
         public event TotalPriceUpdateDelegate OnTotalPriceUpdate;
 
-        public ICommand LoadCatalogDataCommand { get; private set; }
-        public ICommand DecreaseProductQuantityCommand { get; private set; }
-        public ICommand IncreaseProductQuantityCommand { get; private set; }
-        public ICommand ToggleFavoriteCommand { get; private set; }
-        public ICommand GetProductsByCategoryIdCommand { get; private set; }
-        public ICommand GetProductsCommand { get; private set; }
-        public ICommand NavigateToCartCommand { get; private set; }
-        public ICommand NavigateToDetailByProductIdCommand { get; private set; }
-        public ICommand UpdateCartDataCommand { get; private set; }
+        public ICommand LoadCatalogDataCommand { get; }
+        public ICommand DecreaseProductQuantityCommand { get; }
+        public ICommand IncreaseProductQuantityCommand { get; }
+        public ICommand ToggleFavoriteCommand { get; }
+        public ICommand GetProductsByCategoryIdCommand { get; }
+        public ICommand GetProductsCommand { get; }
+        public ICommand NavigateToCartCommand { get; }
+        public ICommand NavigateToDetailByProductIdCommand { get; }
+        public ICommand UpdateCartDataCommand { get; }
 
         public StoreViewModel(INavigationService navigationService,
                               ICacheService cacheService,

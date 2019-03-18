@@ -11,7 +11,7 @@ namespace ProductCatalogSolution.Core.Models
     /// </summary>
     public class Cart
     {
-        private List<Product> _products { get; set; }
+        private List<Product> _products { get; }
 
         public Cart()
         {

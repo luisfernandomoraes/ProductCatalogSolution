@@ -18,10 +18,10 @@ namespace ProductCatalogSolution.Core.ViewModels
 
         public event ProductLoadDelegate OnProductLoad;
 
-        public ICommand GetProductByIdCommand { get; private set; }
-        public ICommand ToggleFavoriteCommand { get; private set; }
-        public ICommand DecreaseProductQuantityCommand { get; private set; }
-        public ICommand IncreaseProductQuantityCommand { get; private set; }
+        public ICommand GetProductByIdCommand { get; }
+        public ICommand ToggleFavoriteCommand { get; }
+        public ICommand DecreaseProductQuantityCommand { get; }
+        public ICommand IncreaseProductQuantityCommand { get; }
 
         public ProductDetailViewModel(ICacheService cacheService,
                                       Store store)

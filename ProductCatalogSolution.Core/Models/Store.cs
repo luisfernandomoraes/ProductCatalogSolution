@@ -7,8 +7,8 @@ namespace ProductCatalogSolution.Core.Models
 {
     public class Store
     {
-        private Catalog _catalog { get; set; }
-        private Cart _cart { get; set; }
+        private Catalog _catalog { get; }
+        private Cart _cart { get; }
 
         public Store(Catalog catalog, Cart cart)
         {
