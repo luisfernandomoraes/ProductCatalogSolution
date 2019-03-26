@@ -4,15 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using MvvmCross.Core.ViewModels;
 
 namespace ProductCatalogSolution.Core.ViewModels
 {
     /// <summary>
     /// TODO: Refactor
     /// </summary>
-    public class CartViewModel
+    public class CartViewModel : MvxViewModel<Cart>
     {
-        private readonly Cart _cart;
+        private Cart _cart;
 
         public delegate void ProductsCartLoadDelegate(IList<Product> products);
         public delegate void TotalOfUnitsLoadDelegate(int totalOfUnits);
@@ -41,6 +42,11 @@ namespace ProductCatalogSolution.Core.ViewModels
             );
         }
 
+        public override void Prepare(Cart parameter)
+        {
+            _cart = parameter;
+        }
+
         private void GetProducts()
         {
             var products = _cart.GetProducts();
@@ -58,5 +64,7 @@ namespace ProductCatalogSolution.Core.ViewModels
             var totalPrice = _cart.GetTotalPrice();
             OnTotalPriceLoad?.Invoke(totalPrice);
         }
+
+
     }
 }
