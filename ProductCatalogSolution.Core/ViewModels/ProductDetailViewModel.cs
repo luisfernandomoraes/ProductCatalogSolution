@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MvvmCross.Core.ViewModels;
 
 namespace ProductCatalogSolution.Core.ViewModels
 {
-    public class ProductDetailViewModel
+    public class ProductDetailViewModel:MvxViewModel<Product>
     {
         private readonly ICacheService _cacheService;
         private readonly Store _store;
@@ -42,6 +43,11 @@ namespace ProductCatalogSolution.Core.ViewModels
             IncreaseProductQuantityCommand = new RelayCommand<Product>(
                 IncreaseProductQuantity
             );
+        }
+
+        public override void Prepare(Product parameter)
+        {
+            GetProductById(parameter.Id);
         }
 
         private void GetProductById(int id)
@@ -80,5 +86,7 @@ namespace ProductCatalogSolution.Core.ViewModels
             _store.IncreaseProductQuantity(product);
             OnProductLoad?.Invoke(product);
         }
+
+        
     }
 }

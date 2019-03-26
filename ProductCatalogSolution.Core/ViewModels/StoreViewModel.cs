@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MvvmCross.Core.ViewModels;
 
 
 namespace ProductCatalogSolution.Core.ViewModels
 {
-    public class StoreViewModel
+    public class StoreViewModel : MvxViewModel<Store>
     {
         private readonly INavigationService _navigationService;
         private readonly ICacheService _cacheService;
-        private readonly Store _store;
+        private Store _store;
 
         public delegate void CatalogDataLoadFailDelegate(Exception exception);
         public delegate void CatalogDataLoadDelegate(IList<ProductCollection> products);
@@ -77,6 +78,11 @@ namespace ProductCatalogSolution.Core.ViewModels
             UpdateCartDataCommand = new RelayCommand(
                 UpdateCartData
             );
+        }
+
+        public override void Prepare(Store parameter)
+        {
+            _store = parameter;
         }
 
         private async Task LoadCatalogDataAsync()
@@ -164,5 +170,7 @@ namespace ProductCatalogSolution.Core.ViewModels
             OnProductsCartUpdate?.Invoke(hasProductsInCart);
             OnTotalPriceUpdate?.Invoke(totalPriceCart);
         }
+
+
     }
 }
