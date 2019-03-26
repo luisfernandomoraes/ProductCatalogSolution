@@ -68,6 +68,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Views\ProductDetailActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -104,6 +105,14 @@
     <PackageReference Include="akavache.sqlite3">
       <Version>6.0.31</Version>
     </PackageReference>
+    <PackageReference Include="MvvmCross" Version="5.2.1" />
+    <PackageReference Include="MvvmCross.Binding" Version="5.2.1" />
+    <PackageReference Include="MvvmCross.Core" Version="5.2.1" />
+    <PackageReference Include="MvvmCross.Platform" Version="5.2.1" />
+    <PackageReference Include="MvvmCross.Droid.Support.Core.UI" Version="5.2.1" />
+    <PackageReference Include="MvvmCross.Droid.Support.Fragment" Version="5.2.1" />
+    <PackageReference Include="MvvmCross.Droid.Support.V7.AppCompat" Version="5.2.1" />
+    <PackageReference Include="MvvmCross.Droid.Support.V7.RecyclerView" Version="5.2.1" />
     <PackageReference Include="Refit">
       <Version>4.6.99</Version>
     </PackageReference>
