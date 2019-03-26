@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-/// <summary>
-/// TODO: Refatorar. Verificar MvvmCross.
-/// </summary>
+
 namespace ProductCatalogSolution.Core.ViewModels
 {
     public class StoreViewModel

@@ -4,13 +4,10 @@ using ProductCatalogSolution.Core.Models;
 using ProductCatalogSolution.Core.ViewModels;
 using System;
 
-//TODO: MvvmCross?
-//TODO: Refactor
+
 namespace ProductCatalogSolution.Core.Helpers
 {
-    /// <summary>
-    /// TODO: To refactor, this shit. 
-    /// </summary>
+
     public class ServiceLocator
     {
         public static ServiceLocator _instance;

@@ -4,7 +4,6 @@ using System.Text;
 
 namespace ProductCatalogSolution.Core.Models
 {
-    //TODO: Refactor msg exception.
     public class ProductCollection : List<Product>
     {
         public string Name { get; }

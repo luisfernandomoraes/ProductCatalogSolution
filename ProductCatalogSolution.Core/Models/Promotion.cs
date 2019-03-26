@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-//TODO: Refactor
 namespace ProductCatalogSolution.Core.Models
 {
     public class Promotion

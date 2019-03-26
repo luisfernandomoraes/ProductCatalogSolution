@@ -14,9 +14,7 @@ using ProductCatalog.Android.Helper;
 
 namespace ProductCatalog.Android.Adapters
 {
-    /// <summary>
-    /// TODO: Refatorar
-    /// </summary>
+
     public class ProductAdapter : BaseAdapter<IListViewItem>
     {
         public delegate void ProductQuantityDecreaseDelegate(Product product);

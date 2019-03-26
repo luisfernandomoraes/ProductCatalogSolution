@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProductCatalogSolution.Core.Models
 {
-    /// <summary>
-    /// TODO: Refactor.
-    /// </summary>
+
     public class Catalog
     {
         private readonly ICatalogApi _catalogApi;
@@ -147,7 +145,6 @@ namespace ProductCatalogSolution.Core.Models
             if (CheckIfApiProductsAreEmpty(productsWithoutPromotion)) return;
 
             var productsOfGroup = GetProductsOfGroupByProductsWithoutPromotion(productsWithoutPromotion);
-            // TODO: Refactor
             var productGroup = new ProductCollection("Confira também", productsOfGroup);
             ProductCollections.Add(productGroup);
         }

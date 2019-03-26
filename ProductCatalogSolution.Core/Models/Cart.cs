@@ -6,9 +6,7 @@ using System.Text;
 
 namespace ProductCatalogSolution.Core.Models
 {
-    /// <summary>
-    /// TODO: Refactor.
-    /// </summary>
+    
     public class Cart
     {
         private List<Product> _products { get; }

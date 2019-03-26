@@ -7,9 +7,7 @@ using ProductCatalogSolution.Core.Api.DataModel;
 
 namespace ProductCatalogSolution.Core.Api.Services
 {
-    /// <summary>
-    /// TODO: Refactor.
-    /// </summary>
+
     public class CatalogApiService : ICatalogApi
     {
         private readonly ICatalogApi _api;

@@ -7,9 +7,7 @@ using System.Windows.Input;
 
 namespace ProductCatalogSolution.Core.ViewModels
 {
-    /// <summary>
-    /// TODO: Refactor
-    /// </summary>
+  
     public class CartViewModel
     {
         private readonly Cart _cart;
